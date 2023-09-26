@@ -1,0 +1,9 @@
+{
+  "mode": {
+    "name": "шерсть",
+    "code": "wool",
+    "temperature": ["30", "40"],
+    "spin": ["600"],
+    "time": "90"
+  }
+}

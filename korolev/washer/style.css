@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.washer {
+    position: fixed;
+    width: 1024px;
+    height: 768px;
+    background-image: url("images/background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    --color-active: #3692f5;
+    --color-disabled: #c1c1c1;
+    --color-white: #ffffff;
+    --color-red: #f11717;
+    --color-grey: rgba(122, 122, 122, 0.6);
+}
+
+
+.washer.stop::after {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #363636d1;
+    content: "";
+}
+
+.washer-controls {
+    position: absolute;
+    top: 140px;
+    right: 122px;
+    display: flex;
+    gap: 4px;
+    width: 240px;
+    height: 80px;
+}
+
+.washer-controls ul {
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: start;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.washer-controls ul li {
+    font-size: 12px;
+    white-space: nowrap;
+    font-family: cursive;
+    font-weight: 600;
+    text-align: end;
+    cursor: pointer;
+}
+
+.washer-controls ul li:hover,
+.washer-controls ul li.active {
+    color: var(--color-active);
+}
+
+.washer-controls ul li.disable {
+    color: var(--color-disabled);
+}
+
+.washer-controls__modes,
+.washer-controls__temperatures,
+.washer-controls__spins,
+.washer-controls__time {
+    height: 100%;
+    padding: 0;
+}
+
+.washer-controls__modes {
+    width: 94px;
+}
+
+.washer-controls__temperatures {
+    width: 25px;
+}
+
+.washer-controls__spins {
+    width: 30px;
+}
+
+.washer-controls__time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 50%;
+    margin-top: 4px;
+    padding: 5px;
+    font-size: 23px;
+    font-family: monospace;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-grey);
+    border-radius: 5px;
+}
+
+.washer-controls__stop-button {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 2px solid var(--color-grey);
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url("images/controls/off.svg");
+    background-position: center;
+    background-size: 15px;
+    background-repeat: no-repeat;
+}
+
+.washer-controls__start-stop-button {
+    position: absolute;
+    right: 5px;
+    top: 34px;
+    width: 25px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--color-grey);
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url("images/controls/on_pause.svg");
+    background-position: center;
+    background-size: 19px;
+    background-repeat: no-repeat;
+}
+
+.washer-controls__start-stop-button.paused {
+    animation-name: blinking;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+}
+
+@keyframes blinking {
+    50% {
+        border-color: var(--color-red);
+    }
+}
+
+.washer-controls__stop-button:hover,
+.washer-controls__start-stop-button:hover {
+    border: 2px solid var(--color-active);
+}
+
+.washer-drum {
+    position: absolute;
+    top: 278px;
+    right: 204px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-image: url("images/mendeleev.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

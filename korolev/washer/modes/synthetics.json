@@ -1,0 +1,9 @@
+{
+  "mode": {
+    "name": "синтетика",
+    "code": "synthetics",
+    "temperature": ["30", "40"],
+    "spin": ["600", "800"],
+    "time": "45"
+  }
+}
